@@ -1,0 +1,92 @@
+{
+  "breakfast": [
+    {
+      "name": "dose",
+      "items": [
+        "raw rice",
+        "urad dal",
+        "parboiled rice"
+      ],
+      "waysToPrepare": "Allow the rice and dal and other ingredients to soak for at least 8 hours or overnight. I usually soak them in the morning, blend up the dosa batter in the evening, and leave it to ferment overnight so I can make fresh dosas next morning. Some traditionalists soak the rice and dal seperately, grind them separately, and then mix them. To me that just adds unnecessary steps and I prefer to just soak everything together and pay closer attention when I blend so I get the texture right. Rice takes just a little longer to blend than the dal, which is perfect because you want the dal to blend smoothly while the rice remains very slightly gritty. That helps the dosas turn out crispy. Always drain out the water you soaked the rice and dal in and add fresh, preferably filtered water when you blend the batter."
+    },
+    {
+      "name": "idli",
+      "items": [
+        "urad dal",
+        "idli rice",
+        "thick poha",
+        "water"
+      ],
+      "waysToPrepare": "Rinse urad dal and fenugreek seeds in water for 2-3 times. Soak urad dal, fenugreek seeds and poha (flattened rice) together in 1-cup water for 4-5 hours. (Dal’s size and volume would increase to almost double after soaking.)Rinse both parboiled and basmati rice together in water for 3-4 times. (Place both types of rice in a large bowl and fill it with water till ¾th height. Rub rice grains between your fingers; this will make water turn cloudy. Drain the water and repeat the process for 3-4 times to rinse them properly.) Soak them together in 2-cups of water for around 4-5 hours.Drain excess water from soaked urad dal and reserve it to use in grinding process in next step. Transfer drained dal and fenugreek seeds into large jar of mixer grinder or wet grinder."
+    },
+    {
+      "name": "Methi Paratha",
+      "items": [
+        "1 cup Whole Wheat Flour + 1/2 cup for dusting",
+        "1/4 cup Besan (gram flour), optional",
+        "1 cup Fenugreek Leaves (finely chopped)",
+        "1/2 teaspoon Cumin Seeds",
+        "1½ teaspoons Green Chilli-Ginger Paste (1 green chilli + ½ inch ginger), optional",
+        "1 teaspoon Red Chilli Powder",
+        "2 tablespoons Curd",
+        "1 tablespoon Oil + for shallow frying",
+        "Salt to taste"
+      ],
+      "waysToPrepare": "1)Pluck methi leaves (fenugreek leaves) from stems.2)Add plucked leaves in a bowl filled with water and keep them soaked for approx. 2-3 minutes to dissolve and separate any dirt/debri. Remove the leaves from the water and repeat the process 2-3 times or more (as needed) to clean methi leaves. Finely chop cleaned green methi leaves.3)Sift 1-cup whole wheat flour and gram flour in a wide mouth large bowl. Add cumin seeds, green chili-ginger paste, red chilli powder, curd, 1-tablespoon oil, finely chopped methi leaves and salt.and mix well.4)Add water as needed to knead a smooth and soft dough like chapati. Cover the dough with a cloth or a plate and keep it aside for 15-20 minutes.5)Knead the dough again. Divide it into 7-8 equal portions. Take each portion one by one, give it a round shape like ball and press it between your palms to give a pattie like shape."
+    }
+  ],
+  "lunch": [
+    {
+      "name": "saaru",
+      "items": [
+        "lemon",
+        "tarmarind",
+        "tomato"
+      ],
+      "waysToPrepare": "Rasam is a light South Indian soup made with basic spices, tomatoes, tamarind and herbs. It is very soothing to the tummy and helps in digestion. Rasam is served with rice but can also be enjoyed as a soup. Add ¼ teaspoon methi seeds and 1 dried red chilli to a small pan and begin to dry roast them on a low to medium heat."
+    },
+    {
+      "name": "palya",
+      "items": [
+        "250 gms Cluster Beans",
+        "1 medium Potato, peeled and cut into cubes",
+        "1 small Tomato, chopped",
+        " 2 tablespoons Oil",
+        "1/4 teaspoon Mustard Seeds",
+        "1/2 teaspoon Cumin Seeds",
+        "1 teaspoon Ginger-Garlic Paste",
+        "A pinch of Asafoetida",
+        "1/4 teaspoon Turmeric Powder",
+        "1/2 teaspoon Red Chilli Powder",
+        "Salt to taste",
+        "1/2 cup Water",
+        "1 teaspoon Cumin-Coriander Powder"
+      ],
+      "waysToPrepare": "Karnataka Style Badanekayi Palya Recipe is a side dish prepared by sauteing the long brinjal with spicy ground coconut mixture. The red color in the dish is mainly obtained from the use of Byadgi Dried Chillies which is a type dried red chili famous in Karnataka."
+    }
+  ],
+  "dinner": [
+    {
+      "name": "parota",
+      "items": [
+        "atta",
+        "salt",
+        "oil"
+      ],
+      "waysToPrepare": "Plain paratha are popular recipe that can be served with pickle or any side veggie dish. Saved! In a bowl take whole wheat flour, salt, oil. Add water in portions and begin to mix and knead the dough. Mix and then knead into a smooth, pliable, soft dough."
+    },
+    {
+      "name": "raita",
+      "items": [
+        "½ Cucumber",
+        "1 cup Natural Yogurt (240b, full fat)",
+        "1 tablespoon Fresh Mint",
+        "addSalt",
+        "¼ teaspoon Ground Cumin",
+        "1 tablespoon Fresh Coriander Leaf (cilantro)",
+        "½ Hot Green Chilli (finely chopped)"
+      ],
+      "waysToPrepare": "This simple raita recipe for the classic Indian yogurt sauce is the perfect complement to starters, street food and curries. Refreshing and cooling with mint and cucumber, it can be mixed up in minutes. Perfect for balancing the hottest Indian dishes"
+    }
+  ]
+}

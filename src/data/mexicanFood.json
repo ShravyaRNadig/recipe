@@ -1,0 +1,38 @@
+{
+  "breakfast": [],
+  "lunch": [
+    {
+      "name": "Chicken burrito bowl with rice and beans",
+      "item": ["flour", "corn tortilla", "chicken"],
+      "waysToPrepare": "Nothing is more delicious than Mexican food. Unfortunately the fried flour or corn tortillas can add unnecessary calories to your lunch. So what’s a salsa lover to do? Remove the fried tortilla bowl and layer the ingredients just like you would on a tostada. If you want to cheat a little, sprinkle crushed tortilla strips over the top."
+    },
+    {
+      "name": "Chicken Tikka Burger",
+      "item": [
+        "4 Boneless chicken breasts cut into ½ inch cubes ",
+        "4 Burger bunsSalt to taste",
+        "1 tsp Kashmiri red chilli powder",
+        "1 tbsp Lemon",
+        "3 tbsp Hung yogurt",
+        "1 tbsp Garlic paste1 tbsp Ginger paste",
+        "1/2 tsp Garam masala powder 1 tsp Mustard oil1 medium OnionButter as required",
+        "Mayonnaise2 tbsp Green chutney",
+        "1 tbsp OilLettuce leaves a few",
+        "corn tortilla"
+      ],
+      "waysToPrepare": "1.Place chicken cubes in a bowl, add salt, ½ tsp Kashmiri red chilli powder and juice of ½ lemon and mix well.2.Set aside in a refrigerator to marinate for 15 minutes.3.Mix together hung yogurt, garlic paste, ginger paste, salt, ½ teaspoon Kashmiri red chilli powder, garam masala powder and mustard oil in a bowl.4.Add chicken and mix well. Set aside in the refrigerator to marinate for 3-4 hours. Halve the burger buns horizontally. Cut onion into thick roundels.5.Put some butter on a heated griller and place the onion roundels on it and grill till lightly browned.6.Mix together mayonnaise and green chutney in a small bowl. Remove onion from the griller and place in a bowl.7.Arrange chicken pieces on the griller, drizzle a little oil and cook till the chicken is cooked and golden.8.Apply mayonnaise-green chutney over all the burger halves.9.Tear a few lettuce leaves and place over the bottom halves.10.Arrange the chicken tikkas over the lettuce and place the onion roundels over them.11.Cover with the top halves of the burgers and press lightly. Serve immediately."
+    }
+  ],
+  "dinner": [
+    {
+      "name": "Mexican Chicken Nachos",
+      "item": [
+        "1kg boneless and skinless chicken",
+        "1 green 1 yellow and 1 red pepper",
+        "1 cooked black beans",
+        "1 large red onion"
+      ],
+      "waysToPrepare": "1)Massage all the ingredients mentioned under marination list with the chicken.2.Take 12 inches pan and put some oil and heat it up.3.Add the marinated boneless chicken and cook it without closing the lid.4.Let the juices from the chicken ooze out after 10 minutes of cooking and keep stirring the chicken occasionally so it doesn’t burn.5.Chicken should be ready within 30 min.utes of cooking.6.Taste the salt and add accordingly towards the end if needed"
+    }
+  ]
+}
