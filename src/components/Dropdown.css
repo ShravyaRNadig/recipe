@@ -1,0 +1,30 @@
+.cuisine-submenu{
+    width: 7rem;
+    position:absolute;
+    top: 79px;
+    list-style: none;
+    text-align: start;
+    list-style: none;
+}
+
+.cuisine-submenu li{
+   background: rgb(0,212,212);
+   cursor: pointer;
+}
+
+.cuisine-submenu li a:hover {
+    background: rgb(0, 175, 175);
+}
+
+.cuisine-submenu.clicked {
+    display: none;
+}
+
+.submenu-item{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    padding: 16px;
+}
