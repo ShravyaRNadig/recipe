@@ -87,7 +87,7 @@ function App() {
 //   const errorSetting = (error) => {
 //     setErr(error);
 //   };
-
+//vikas
     return (
        
 //        <div className="container">
