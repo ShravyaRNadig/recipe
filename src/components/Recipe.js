@@ -8,92 +8,111 @@ const Recipe = (props) => {
   const [cuisine, setCuisine] = useState({});
   const [cuisineList, setCuisineList] = useState([" ", "Indian", "American", "Mexican"])
 
-  const [time, setTime] = useState({});
-  const [timeList, setTimeList] = useState([])
+  const [meal, setMeal] = useState({});
+  const [mealList, setMealList] = useState([])
 
-  const [recipe, setRecipe] = useState({})
-  const [recipeList, setRecipeList] = useState([])
+  const [dishList, setDishList] = useState([])
 
-  const updateTimeList = (obj) => {
-    setTimeList([' '])
-    setRecipeList([' '])
-    if (obj.breakfast.length > 0 && obj.lunch.length > 0 && obj.dinner.length > 0) {
-      setTimeList(['','Breakfast', 'Lunch', 'Dinner'])
-    } else if (obj.breakfast.length > 0 && obj.lunch.length > 0) {
-      setTimeList(['','Breakfast', 'Lunch'])
-    } else if (obj.breakfast.length > 0 && obj.dinner.length > 0) {
-      setTimeList(['','Breakfast', 'Dinner'])
-    } else if (obj.lunch.length > 0 && obj.dinner.length > 0) {
-      setTimeList(['','Lunch', 'Dinner'])
-    } else if (obj.breakfast.length > 0) {
-      setTimeList(['','Breakfast'])
-    } else if (obj.lunch.length > 0) {
-      setTimeList(['','Lunch'])
-    } else if (obj.dinner.length > 0) {
-      setTimeList(['','Dinner'])
-    }
-    
+  //These functins help to set states to empty
+  const setMealDishEmpty = () => {
+    setMealList([' '])
+    setDishList([' '])
+    props.recipeChange({
+      "name": "",
+      "items": [],
+      "waysToPrepare": []
+      })
   }
 
-  const updateRecipeList = (arr) => {
-    setRecipeList([])
-    let itemNames = [' ']
-    arr.map((item) => {
-      itemNames.push(item.name)
-    })
-    setRecipeList(itemNames)
+  const setDishToEmpty = () => {
+    setDishList([' '])
+    props.recipeChange({
+      "name": "",
+      "items": [],
+      "waysToPrepare": []
+      })
   }
 
-  const cuisineChange = (event) => {
-    console.log('Cuisine', event.target.value)
+  //These are the onChange functions for the dropdown menus
+  const onCuisineChange = (event) => {
+    setMealDishEmpty()
     switch (event.target.value) {
       case 'Indian':
         setCuisine(indianFood)
-        updateTimeList(indianFood)
+        updateMealList(indianFood)
         break;
       case 'American':
         setCuisine(americanFood)
-        updateTimeList(americanFood)
+        updateMealList(americanFood)
         break;
       case 'Mexican':
         setCuisine(mexicanFood)
-        updateTimeList(mexicanFood)
+        updateMealList(mexicanFood)
         break;
       case ' ':
         setCuisine(null)
-        setTimeList([])
+        setMealList([])
     }
   }
 
-  const timeChange = (e) => {
+  const onMealChange = (e) => {
+    setDishToEmpty()
     switch (e.target.value) {
       case 'Breakfast':
-        setTime(cuisine.breakfast) //array of objects
+        setMeal(cuisine.breakfast) //array of objects
         updateRecipeList(cuisine.breakfast)
         break;
       case 'Lunch':
-        setTime(cuisine.lunch)
+        setMeal(cuisine.lunch)
         updateRecipeList(cuisine.lunch)
         break;
       case 'Dinner':
-        setTime(cuisine.dinner)
+        setMeal(cuisine.dinner)
         updateRecipeList(cuisine.dinner)
         break;
     }
   }
 
-  const recipeChange = (e) => {
+  const onDishChange = (e) => {
     let selectedRecipe
-    time.map((item) => {
+    meal.map((item) => {
       if (item.name === e.target.value) {
         selectedRecipe = item
       }
     })
     props.recipeChange(selectedRecipe)
   }
+
+  //These function updates the dropdownmenu options list
+  const updateMealList = (obj) => {
+    if (obj.breakfast.length > 0 && obj.lunch.length > 0 && obj.dinner.length > 0) {
+      setMealList(['Breakfast', 'Lunch', 'Dinner'])
+    } else if (obj.breakfast.length > 0 && obj.lunch.length > 0) {
+      setMealList(['','Breakfast', 'Lunch'])
+    } else if (obj.breakfast.length > 0 && obj.dinner.length > 0) {
+      setMealList(['','Breakfast', 'Dinner'])
+    } else if (obj.lunch.length > 0 && obj.dinner.length > 0) {
+      setMealList(['','Lunch', 'Dinner'])
+    } else if (obj.breakfast.length > 0) {
+      setMealList(['','Breakfast'])
+    } else if (obj.lunch.length > 0) {
+      setMealList(['','Lunch'])
+    } else if (obj.dinner.length > 0) {
+      setMealList(['','Dinner'])
+    } 
+  }
+
+  const updateRecipeList = (arr) => {
+    let itemNames = [' ']
+    arr.map((item) => {
+      itemNames.push(item.name)
+    })
+    setDishList(itemNames)
+  }
+
   return (
     <div>
-      <select onChange={cuisineChange}>
+      <select onChange={onCuisineChange}>
         {
           cuisineList.map((cuisineItem) =>
             (<option value={cuisineItem}>{cuisineItem}</option>)
@@ -101,17 +120,18 @@ const Recipe = (props) => {
         }
       </select>
 
-      <select onChange={timeChange}>
+      <select onChange={onMealChange}>
+      <option selected> </option>
         {
-          timeList.map((timeItem) =>
+          mealList.map((timeItem) =>
             (<option value={timeItem}>{timeItem}</option>)
           )
         }
       </select>
 
-      <select onChange={recipeChange}>
+      <select onChange={onDishChange}>
         {
-          recipeList.map((recipeItem) =>
+          dishList.map((recipeItem) =>
             <option value={recipeItem}>{recipeItem}</option>
           )
         }

@@ -7,11 +7,11 @@ const Cuisine = () => {
 	const [recipe, setRecipe] = useState({
 		"name": "",
 		"items": [],
-		"waysToPrepare": ""
+		"waysToPrepare": []
 	  })
 
 	const recipeChange = (selectedRecipe) => {
-		setRecipe(selectedRecipe)
+		setRecipe(selectedRecipe) 
 	}
 	return (
 		<div>

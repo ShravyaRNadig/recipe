@@ -4,12 +4,12 @@
     {
       "name": "Protein Salad",
       "items": ["tomato", "chopped almonds", "spinach"],
-      "waysToPrepare": "Centering your lunch on protein and deep green vegetables is the healthiest way to go. Fresh spinach, albacore tuna, chopped almonds, tomatoes and avocados with a low-calorie dressing is a delicious option to add to your lunch repertoire."
+      "waysToPrepare": ["Centering your lunch on protein and deep green vegetables is the healthiest way to go."," Fresh spinach, albacore tuna, chopped almonds, tomatoes and avocados with a low-calorie dressing is a delicious option to add to your lunch repertoire."]
     },
     {
       "name": "Summer rolls with peanut sauce",
       "items": ["shrimp", "carrot", "spinach", ""],
-      "waysToPrepare": "Buy pre-cooked shrimp either from the freezer section or your fishmonger. Some seafood departments will steam shrimp for you.Pick up shredded carrots from the produce section.Skip the rice noodles — although they are traditional, the rolls will be just as good without them."
+      "waysToPrepare": ["Buy pre-cooked shrimp either from the freezer section or your fishmonger."," Some seafood departments will steam shrimp for you.","Pick up shredded carrots from the produce section.","Skip the rice noodles — although they are traditional, the rolls will be just as good without them."]
     }
   ],
   "dinner": [
@@ -23,12 +23,12 @@
         "relish",
         "cheese and chilli"
       ],
-      "waysToPrepare": "It doesn't get more American than a basic hot dog, sandwiched between a sliced bun, topped with a squiggle of ketchup and mustard. The sausage was created in the late 1600's by John Geoghehner, a butcher from Germany. They were popularised in Chicago in 1893. Everyone's favourite hot dog is basically a cooked sausage which is traditionally grilled or steamed. Garnish with mustard, ketchup, mayonnaise, onions, relish, cheese and chilli."
+      "waysToPrepare": ["It doesn't get more American than a basic hot dog, sandwiched between a sliced bun, topped with a squiggle of ketchup and mustard."," The sausage was created in the late 1600's by John Geoghehner, a butcher from Germany."," They were popularised in Chicago in 1893."," Everyone's favourite hot dog is basically a cooked sausage which is traditionally grilled or steamed."," Garnish with mustard, ketchup, mayonnaise, onions, relish, cheese and chilli."]
     },
     {
       "name": "Loaded Vegetable Sandwich",
       "items": ["vegetables"],
-      "waysToPrepare": "The beauty of this lunch selection is you can pack it full of just about any vegetable you desire. For an even tastier alternative, consider grilling vegetables at the beginning of the week with balsamic dressing so you can whip these little sandwiches up quickly any day of the week!"
+      "waysToPrepare": ["The beauty of this lunch selection is you can pack it full of just about any vegetable you desire. ","For an even tastier alternative, consider grilling vegetables at the beginning of the week with balsamic dressing so you can whip these little sandwiches up quickly any day of the week!"]
     }
   ]
 }
