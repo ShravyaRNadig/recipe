@@ -19,7 +19,7 @@ function App() {
     <BrowserRouter>
      <Navbar/>
       <Routes>
-        <Route path="/" element={<Signup checkSignIn={checkSignIn}/>} />
+        <Route path="/" element={<Signup/>} />
         <Route path="/home" element={<Home />}></Route>
         <Route path="/cuisine" element={<Cuisine />}></Route>
         <Route path='/time' element={<Time />}></Route>
