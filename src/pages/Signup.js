@@ -84,9 +84,6 @@ const Signup = (props) => {
                 <button onClick={handleSubmit} className="btn" type="submit">
                     Submit
                 </button>
-                <p className="forgot-password text-right">
-                    Already registered <a href="/sign-in">sign in?</a>
-                </p>
             </form>
         </div>
     );
