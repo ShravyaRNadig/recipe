@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-const Signup = () => {
+const Signup = (props) => {
     // States for registration
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -31,13 +30,15 @@ const Signup = () => {
 
     // Handling the form submission
     const handleSubmit = (e) => {
-        navigate('./home', { replace: true });
         e.preventDefault();
         if (name === '' || email === '' || password === '') {
             setError(true);
+            props.checkSignIn(false)
         } else {
             setSubmitted(true);
             setError(false);
+            props.checkSignIn(true)
+            navigate('./home', { replace: true });
         }
     };
 

@@ -6,7 +6,7 @@
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import "jquery/dist/jquery.slim";
 // import './App.css';
-import React from "react";
+import React ,{ useState } from "react";
 import Navbar from './components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home.js";
@@ -15,11 +15,15 @@ import Time from './pages/Time';
 import Signup from "./pages/Signup";
 
 function App() {
+  const [signedIn,setSignedIn] = useState(false)
   //   const [authenticated, setAuthenticated] = useState(false);
   //   const [user, setUser] = useState({});
   //   const [err, setErr] = useState("");
   //   const [success, setSuccess] = useState("");
 
+  const checkSignIn = (val) => {
+    setSignedIn(val)
+  }
   //   useEffect(() => {
   //     auth.onAuthStateChanged((user) => {
   //       if (user) {
@@ -147,9 +151,9 @@ function App() {
     //       </div>
     //     </div>
     <BrowserRouter>
-      <Navbar />
+      {signedIn===true?<Navbar />:null}
       <Routes>
-        <Route path="/" element={<Signup />} />
+        <Route path="/" element={<Signup checkSignIn={checkSignIn}/>} />
         <Route path="/home" element={<Home />}></Route>
         <Route path="/cuisine" element={<Cuisine />}></Route>
         <Route path='/time' element={<Time />}></Route>

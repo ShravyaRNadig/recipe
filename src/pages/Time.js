@@ -3,7 +3,7 @@ import React from 'react'
 function Time() {
   return (
     <div>
-      
+      <h1>Time</h1>
     </div>
   )
 }
