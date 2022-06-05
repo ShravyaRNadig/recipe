@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Signup.css'
-// import Login from './Login';
+import Login from './Login';
+
 const Signup = (props) => {
     // States for registration
     const [name, setName] = useState('');
@@ -44,6 +45,10 @@ const Signup = (props) => {
         }
     };
 
+    const Login = (e) =>{
+        navigate('./Login',{replace: true});
+    }
+
     // Showing error message if error is true
     const errorMessage = () => {
         return (
@@ -57,11 +62,15 @@ const Signup = (props) => {
             </div>
         );
     };
+
+    // styling
+
     const styles = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
     };
+
     return (
         <div className="form">
             <div style={styles}>
@@ -92,7 +101,7 @@ const Signup = (props) => {
                     <button onClick={handleSubmit} className="btn" type="submit">
                         Submit
                     </button>
-                    {/* <p>Already registerd?<a href='/Login'>Login</a></p> */}
+                    <p>Already registerd?<a href='/Login' onClick={Login}>Login</a></p>
                 </form>
             </div>
         </div>
