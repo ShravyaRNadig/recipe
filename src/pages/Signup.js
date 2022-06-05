@@ -83,7 +83,7 @@ const Signup = (props) => {
                     {/* <label className="label">Email</label> */}
                     <input onChange={handleEmail} className="input"
                         value={email} type="email" placeholder='Email' />
-                    
+                   
                     <br /><br />
                     {/* <label className="label">Password</label> */}
                     <input onChange={handlePassword} className="input"
