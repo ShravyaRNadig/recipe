@@ -3,12 +3,12 @@
   "lunch": [
     {
       "name": "Chicken burrito bowl with rice and beans",
-      "item": ["flour", "corn tortilla", "chicken"],
+      "items": ["flour", "corn tortilla", "chicken"],
       "waysToPrepare": "Nothing is more delicious than Mexican food. Unfortunately the fried flour or corn tortillas can add unnecessary calories to your lunch. So what’s a salsa lover to do? Remove the fried tortilla bowl and layer the ingredients just like you would on a tostada. If you want to cheat a little, sprinkle crushed tortilla strips over the top."
     },
     {
       "name": "Chicken Tikka Burger",
-      "item": [
+      "items": [
         "4 Boneless chicken breasts cut into ½ inch cubes ",
         "4 Burger bunsSalt to taste",
         "1 tsp Kashmiri red chilli powder",
@@ -26,7 +26,7 @@
   "dinner": [
     {
       "name": "Mexican Chicken Nachos",
-      "item": [
+      "items": [
         "1kg boneless and skinless chicken",
         "1 green 1 yellow and 1 red pepper",
         "1 cooked black beans",

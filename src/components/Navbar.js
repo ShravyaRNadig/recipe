@@ -12,7 +12,7 @@ function Navbar (){
     return(
         <>
             <nav className=" navbar">
-                <Link to="/" className="navbar-logo">
+                <Link to="/home" className="navbar-logo">
                     RECIPE
                     <Icons.FaCarrot />
                 </Link>

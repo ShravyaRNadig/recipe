@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Signup.css'
-import Login from './Login';
+import './styleSheets/Signup.css'
 
 
 const Signup = (props) => {
@@ -41,13 +40,13 @@ const Signup = (props) => {
         } else {
             setSubmitted(true);
             setError(false);
-            // props.checkSignIn(true)
             navigate('./home', { replace: true });
+            sessionStorage.setItem("auth", 'Authenticated');
         }
     };
 
-    const Login = (e) =>{
-        navigate('./Login',{replace: true});
+    const onLoginOptionClick = (e) =>{
+        props.handleOldUser(true)
     }
 
     // Showing error message if error is true
@@ -102,8 +101,9 @@ const Signup = (props) => {
                     <button onClick={handleSubmit} className="btn" type="submit">
                         Submit
                     </button>
-                    <p>Already registerd?<a href='/Login' onClick={Login}>Login</a></p>
+                    <p>Already registerd?</p><button onClick={onLoginOptionClick}>Login</button>
                 </form>
+                
             </div>
         </div>
     );

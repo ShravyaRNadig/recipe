@@ -8,26 +8,41 @@ const Cuisine = () => {
 		"name": "",
 		"items": [],
 		"waysToPrepare": ""
-	  })
+	})
 
-	const recipeChange = (selectedRecipe) => {
+	const handleRecipeChange = (selectedRecipe) => {
 		setRecipe(selectedRecipe)
 	}
 
 	const styles = {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-		width:'auto'
-      };
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		width: 'auto'
+	};
 
-	return (
-		<div>
-			<div style={styles}><Recipe recipeChange={recipeChange} /></div>
-			{/* <Recipe recipeChange={recipeChange} /> */}
-			<DisplayRecipe data={recipe} />
-		</div>
-	)
+	const handleAuthRedirect = () => {
+		window.location.href = '/'
+	}
+	if (sessionStorage.getItem("auth") === 'Authenticated') {
+		return (
+			<div>
+				<div style={styles}>
+					<Recipe handleRecipeChange={handleRecipeChange} />
+					</div>
+				{/* <Recipe recipeChange={recipeChange} /> */}
+				<DisplayRecipe data={recipe} />
+			</div>
+		)
+	} else {
+		return (
+			<div>
+				<h1>You are not authorized to view this page</h1>
+				<h2>Please login to view this page</h2>
+				<button onClick={handleAuthRedirect}>Login/Signup</button>
+			</div>
+		)
+	}
 }
 
 export default Cuisine;

@@ -89,7 +89,7 @@ const Recipe = (props) => {
         selectedRecipe = item
       }
     })
-    props.recipeChange(selectedRecipe)
+    props.handleRecipeChange(selectedRecipe)
   }
   return (
     <div>

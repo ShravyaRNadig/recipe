@@ -1,6 +1,5 @@
 import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
-import Signup from "./pages/Signup";
 import App from "./App";
 import { BrowserRouter } from 'react-router-dom';
 const rootElement = document.getElementById("root");

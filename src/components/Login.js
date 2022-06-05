@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import "./Login.css";
+import "./styleSheets/Login.css";
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = (props) => {
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-
+  const navigate = useNavigate()
+  
   // User Login info
   const database = [
     {
@@ -39,6 +41,8 @@ const Login = () => {
         setErrorMessages({ name: "pass", message: errors.pass });
       } else {
         setIsSubmitted(true);
+        navigate('./home', { replace: true }); 
+        sessionStorage.setItem("auth", 'Authenticated');
       }
     } else {
       // Username not found
@@ -51,6 +55,10 @@ const Login = () => {
     name === errorMessages.name && (
       <div className="error">{errorMessages.message}</div>
     );
+
+    const onSignupOptionClick = ()=>{
+      props.handleOldUser(false)
+    }
 
   return (
     <div className="form">
@@ -69,6 +77,9 @@ const Login = () => {
           <input type="submit" />
         </div>
       </form>
+      <p>New User?</p><button onClick={onSignupOptionClick}>Sign-up</button>
     </div>
   );
 }
+
+export default Login
