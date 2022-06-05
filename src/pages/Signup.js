@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Signup.css'
 import Login from './Login';
 
+
 const Signup = (props) => {
     // States for registration
     const [name, setName] = useState('');
