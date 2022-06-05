@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+.para{
+    justify-content: center;
+}
+
 body,
 html {
     font-family: 'Roboto Slab', serif;
@@ -41,7 +45,17 @@ body {
 
 .card--2 .card__img,
 .card--2 .card__img--hover {
-    background-image: url('https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+    background-image: url('https://th.bing.com/th/id/OIP.YMP7N3QDZH1hCKK4yLylYQHaLG?w=185&h=278&c=7&r=0&o=5&pid=1.7?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
+.card--3 .card__img,
+.card--3 .card__img--hover {
+    background-image: url('https://th.bing.com/th/id/OIP.sa71QzCqR-gbC4V9CI5OJwHaHa?w=185&h=185&c=7&r=0&o=5&pid=1.7?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
+.card--4 .card__img,
+.card--4 .card__img--hover {
+    background-image: url('https://th.bing.com/th/id/OIP.uPJcJpbeVGUkSSOSJdQKcQHaE8?w=267&h=180&c=7&r=0&o=5&pid=1.7?w=185&h=185&c=7&r=0&o=5&pid=1.7?auto=compress&cs=tinysrgb&h=750&w=1260');
 }
 
 .card__like {

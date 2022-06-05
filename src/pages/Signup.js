@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Signup.css'
+// import Login from './Login';
 const Signup = (props) => {
     // States for registration
     const [name, setName] = useState('');
@@ -38,7 +39,7 @@ const Signup = (props) => {
         } else {
             setSubmitted(true);
             setError(false);
-            props.checkSignIn(true)
+            // props.checkSignIn(true)
             navigate('./home', { replace: true });
         }
     };
@@ -50,44 +51,50 @@ const Signup = (props) => {
                 className="error"
                 style={{
                     display: error ? '' : 'none',
+
                 }}>
                 <h1>Please enter all the fields</h1>
             </div>
         );
     };
-
+    const styles = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    };
     return (
         <div className="form">
-            <div>
+            <div style={styles}>
                 <h1>User Registration</h1>
             </div>
 
             {/* Calling to the methods */}
-            <div className="messages">
+            <div className="messages" style={styles}>
                 {errorMessage()}
                 {/* {successMessage()} */}
             </div>
-            <form>
-                {/* Labels and inputs for form data */}
-                <label className="label">Name</label>
-                <input onChange={handleName} className="input"
-                    value={name} type="text" />
-                <br />
-                <label className="label">Email</label>
-                <input onChange={handleEmail} className="input"
-                    value={email} type="email" />
-                <br />
-                <label className="label">Password</label>
-                <input onChange={handlePassword} className="input"
-                    value={password} type="password" />
-                <br />
-                <button onClick={handleSubmit} className="btn" type="submit">
-                    Submit
-                </button>
-                <p className="forgot-password text-right">
-                    Already registered <a href="/sign-in">sign in?</a>
-                </p>
-            </form>
+            <div style={styles}>
+                <form>
+                    {/* Labels and inputs for form data */}
+                    {/* <label className="label">Name</label> */}
+                    <input onChange={handleName} className="input"
+                        value={name} type="text" placeholder='Name' />
+                    <br /><br />
+                    {/* <label className="label">Email</label> */}
+                    <input onChange={handleEmail} className="input"
+                        value={email} type="email" placeholder='Email' />
+                    
+                    <br /><br />
+                    {/* <label className="label">Password</label> */}
+                    <input onChange={handlePassword} className="input"
+                        value={password} type="password" placeholder='Password' />
+                    <br /><br />
+                    <button onClick={handleSubmit} className="btn" type="submit">
+                        Submit
+                    </button>
+                    {/* <p>Already registerd?<a href='/Login'>Login</a></p> */}
+                </form>
+            </div>
         </div>
     );
 }

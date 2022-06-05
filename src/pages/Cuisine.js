@@ -13,13 +13,21 @@ const Cuisine = () => {
 	const recipeChange = (selectedRecipe) => {
 		setRecipe(selectedRecipe)
 	}
+
+	const styles = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+		width:'auto'
+      };
+
 	return (
 		<div>
-			<Recipe recipeChange={recipeChange} />
+			<div style={styles}><Recipe recipeChange={recipeChange} /></div>
+			{/* <Recipe recipeChange={recipeChange} /> */}
 			<DisplayRecipe data={recipe} />
 		</div>
 	)
 }
 
 export default Cuisine;
-
