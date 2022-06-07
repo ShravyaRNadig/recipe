@@ -20,7 +20,7 @@ function ContactUs() {
         className='contactForm'>
 
         <input
-          type='text'
+          type='name'
           name='name'
           placeholder='Enter your name' required />
 
