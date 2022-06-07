@@ -18,7 +18,7 @@
                   " Rice takes just a little longer to blend than the dal, which is perfect because you want the dal to blend smoothly while the rice remains very slightly gritty.",
                   " That helps the dosas turn out crispy. Always drain out the water you soaked the rice and dal in and add fresh, preferably filtered water when you blend the batter."
                 ],
-                "comments": [{ "name": "Vikas", "comment": "Fantastic Dose" }]
+                "comments": [{ "name": "Vikas", "comment": "Fantastic Dose" , "rating":3 }]
               },
               {
                 "name": "Rice Idli",
@@ -32,7 +32,7 @@
                   " Soak them together in 2-cups of water for around 4-5 hours.Drain excess water from soaked urad dal and reserve it to use in grinding process in next step.",
                   " Transfer drained dal and fenugreek seeds into large jar of mixer grinder or wet grinder."
                 ],
-                "comments": [{ "name": "Vikas", "comment": "Fantastic Idli" }]
+                "comments": [{ "name": "Vikas", "comment": "Fantastic Idli", "rating":3 }]
               },
               {
                 "name": "Methi Paratha",
@@ -54,7 +54,7 @@
                   "Add water as needed to knead a smooth and soft dough like chapati. Cover the dough with a cloth or a plate and keep it aside for 15-20 minutes.",
                   "Knead the dough again. Divide it into 7-8 equal portions. Take each portion one by one, give it a round shape like ball and press it between your palms to give a pattie like shape."
                 ],
-                "comments": [{ "name": "Vikas", "comment": "Fantastic Parota" }]
+                "comments": [{ "name": "Vikas", "comment": "Fantastic Parota", "rating":3 }]
               }
             ]
           },
@@ -69,7 +69,7 @@
                   " It is very soothing to the tummy and helps in digestion. Rasam is served with rice but can also be enjoyed as a soup.",
                   " Add ¼ teaspoon methi seeds and 1 dried red chilli to a small pan and begin to dry roast them on a low to medium heat."
                 ],
-                "comments": [{ "name": "Vikas", "comment": "Fantastic Rasam" }]
+                "comments": [{ "name": "Vikas", "comment": "Fantastic Rasam", "rating":3 }]
               },
               {
                 "name": "Vegetable Palya",
@@ -92,7 +92,7 @@
                   "Karnataka Style Badanekayi Palya Recipe is a side dish prepared by sauteing the long brinjal with spicy ground coconut mixture.",
                   " The red color in the dish is mainly obtained from the use of Byadgi Dried Chillies which is a type dried red chili famous in Karnataka."
                 ],
-                "comments": [{ "name": "Vikas", "comment": "Fantastic Palya" }]
+                "comments": [{ "name": "Vikas", "comment": "Fantastic Palya", "rating":3 }]
               }
             ]
           },
@@ -107,7 +107,7 @@
                   " Saved! In a bowl take whole wheat flour, salt, oil. Add water in portions and begin to mix and knead the dough. Mix and then knead into a smooth, pliable, soft dough."
                 ],
                 "comments": [
-                  { "name": "Vikas", "comment": "Fantastic Kerala Parota" }
+                  { "name": "Vikas", "comment": "Fantastic Kerala Parota", "rating":3 }
                 ]
               },
               {
@@ -125,7 +125,7 @@
                   "This simple raita recipe for the classic Indian yogurt sauce is the perfect complement to starters, street food and curries. ",
                   "Refreshing and cooling with mint and cucumber, it can be mixed up in minutes. Perfect for balancing the hottest Indian dishes"
                 ],
-                "comments": [{ "name": "Vikas", "comment": "Fantastic Raita" }]
+                "comments": [{ "name": "Vikas", "comment": "Fantastic Raita", "rating":3 }]
               }
             ]
           }
@@ -150,7 +150,7 @@
                   "Centering your lunch on protein and deep green vegetables is the healthiest way to go. ",
                   "Fresh spinach, albacore tuna, chopped almonds, tomatoes and avocados with a low-calorie dressing is a delicious option to add to your lunch repertoire."
                 ],
-                "comments": [{ "name": "Vikas", "comment": "Fantastic Salad" }]
+                "comments": [{ "name": "Vikas", "comment": "Fantastic Salad", "rating":3 }]
               },
               {
                 "name": "Summer rolls with peanut sauce",
@@ -161,7 +161,7 @@
                   "Skip the rice noodles — although they are traditional, the rolls will be just as good without them."
                 ],
                 "comments": [
-                  { "name": "Vikas", "comment": "Fantastic Summer roll" }
+                  { "name": "Vikas", "comment": "Fantastic Summer roll", "rating":3 }
                 ]
               }
             ]
@@ -187,7 +187,7 @@
                   " Garnish with mustard, ketchup, mayonnaise, onions, relish, cheese and chilli."
                 ],
                 "comments": [
-                  { "name": "Vikas", "comment": "Fantastic Hot dog" }
+                  { "name": "Vikas", "comment": "Fantastic Hot dog", "rating":3 }
                 ]
               },
               {
@@ -198,7 +198,7 @@
                   " For an even tastier alternative, consider grilling vegetables at the beginning of the week with balsamic dressing so you can whip these little sandwiches up quickly any day of the week!"
                 ],
                 "comments": [
-                  { "name": "Vikas", "comment": "Fantastic Sandwich" }
+                  { "name": "Vikas", "comment": "Fantastic Sandwich", "rating":3 }
                 ]
               }
             ]
@@ -226,7 +226,7 @@
                   " If you want to cheat a little, sprinkle crushed tortilla strips over the top."
                 ],
                 "comments": [
-                  { "name": "Vikas", "comment": "Fantastic Burriot" }
+                  { "name": "Vikas", "comment": "Fantastic Burriot", "rating":3 }
                 ]
               },
               {
@@ -255,7 +255,7 @@
                   "Tear a few lettuce leaves and place over the bottom halves.",
                   "Arrange the chicken tikkas over the lettuce and place the onion roundels over them.11.Cover with the top halves of the burgers and press lightly. Serve immediately."
                 ],
-                "comments": [{ "name": "Vikas", "comment": "Fantastic Burger" }]
+                "comments": [{ "name": "Vikas", "comment": "Fantastic Burger" , "rating":3}]
               }
             ]
           },
@@ -278,7 +278,7 @@
                   "Chicken should be ready within 30 min.utes of cooking.",
                   "Taste the salt and add accordingly towards the end if needed"
                 ],
-                "comments": [{ "name": "Vikas", "comment": "Fantastic Nachos" }]
+                "comments": [{ "name": "Vikas", "comment": "Fantastic Nachos", "rating":3 }]
               }
             ]
           }

@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import React, { useState } from 'react';
 import { useRecipe } from "../RecipeContext"
 
 const DisplayRecipe = ({
@@ -8,6 +8,7 @@ const DisplayRecipe = ({
 }) => {
     const { foodRecipes, alterRecipeList } = useRecipe();
     const [comment, setComment] = useState("");
+    const [rating, setRating] = useState("");
 
     const styles = {
         display: 'flex',
@@ -19,26 +20,27 @@ const DisplayRecipe = ({
         e.preventDefault();
         let food = foodRecipes
         food.recipes.map((item) => {
-            if(item.country === region){
+            if (item.country === region) {
                 item.data.meals.map((mealItem) => {
-                    if(mealItem.name === meal){
-                        mealItem.data.map((recipeitem)=>{
-                            if(recipeitem.name === data.name){
+                    if (mealItem.name === meal) {
+                        mealItem.data.map((recipeitem) => {
+                            if (recipeitem.name === data.name) {
                                 let obj = {
                                     "name": sessionStorage.getItem('userName'),
-                                     "comment": comment
+                                    "comment": comment,
+                                    "rating": rating
                                 }
                                 recipeitem.comments.push(obj)
                                 alterRecipeList(food)
                                 setComment("")
+                                setRating("")
                             }
                         })
                     }
                 })
             }
         })
-        //alterRecipeList(food)
-        
+
     }
     if (data?.name === '') {
         return (
@@ -73,6 +75,7 @@ const DisplayRecipe = ({
                                 {data?.comments.map((item) => (
                                     <div className='comment_box'>
                                         <p>name:{item.name}</p>
+                                        <p>rating:{item.rating}</p>
                                         <p>comment:{item.comment}</p>
                                     </div>
                                 ))}
@@ -84,6 +87,10 @@ const DisplayRecipe = ({
                                         value={comment}
                                         onChange={(e) => setComment(e.target.value)}
                                     />
+                                    <input
+                                        type="number"
+                                        value={rating}
+                                        onChange={(e) => setRating(e.target.value)} />
                                     <button type="submit">Add Comment</button>
                                 </form>
                             </div>
