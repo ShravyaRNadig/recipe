@@ -1,6 +1,5 @@
 import React, { useContext, createContext, useState, useEffect } from "react";
 import food from "./data/foodRecipes.json";
-import test from './data/test.json'
 
 const Recipe = createContext({
   foodRecipes: {
@@ -20,14 +19,14 @@ export const useRecipe = () => {
 
 const RecipeContext = ({ children }) => {
   const [foodRecipes, setFoodRecipes] = useState(food);
-
+  const [count,setCount] = useState(0)
   // useEffect(() => {
   //   setFoodRecipes(foodRecipes);
   // }, []);
 
-  const alterRecipeList = (list) => {
-    setFoodRecipes(list);
-    console.log('List',list)
+  const alterRecipeList = (recipes) => {
+    setFoodRecipes({...recipes});
+    setCount(count+1)
   };
 
   return (

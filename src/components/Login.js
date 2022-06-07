@@ -6,6 +6,7 @@ const Login = (props) => {
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+
   const navigate = useNavigate()
   
   // User Login info
@@ -28,9 +29,9 @@ const Login = (props) => {
   const handleSubmit = (event) => {
     //Prevent page reload
     event.preventDefault();
-
+    
     var { uname, pass } = document.forms[0];
-
+    console.log('Login',uname.value)
     // Find user login info
     const userData = database.find((user) => user.username === uname.value);
 
@@ -43,7 +44,7 @@ const Login = (props) => {
         setIsSubmitted(true);
         navigate('./home', { replace: true }); 
         sessionStorage.setItem("auth", 'Authenticated');
-        sessionStorage.setItem("userName", uname);
+        sessionStorage.setItem("userName", uname.value);
       }
     } else {
       // Username not found

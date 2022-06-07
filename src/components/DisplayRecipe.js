@@ -19,19 +19,29 @@ const DisplayRecipe = ({
         e.preventDefault();
         let food = foodRecipes
         food.recipes.map((item) => {
-            console.log('Item',item)
+            // console.log('Item',item)
             if(item.country === region){
                 console.log('Region',item.country)
-                // if(item.name.meal.length > 0){
-                //     let com = {
-                //          "name": sessionStorage.getItem("name"),
-                //          "comment": comment
-                //         }
-                //     item.name.meal.comments.push(com)
-                //     alterRecipeList(food)
-                // }
+                item.data.meals.map((mealItem) => {
+                    if(mealItem.name === meal){
+                        console.log('Meal',mealItem)
+                        mealItem.data.map((recipeitem)=>{
+                            if(recipeitem.name === data.name){
+                                console.log('Recipe',recipeitem.name)
+                                let obj = {
+                                    "name": sessionStorage.getItem('userName'),
+                                     "comment": comment
+                                }
+                                recipeitem.comments.push(obj)
+                                alterRecipeList(food)
+                                setComment("")
+                            }
+                        })
+                    }
+                })
             }
         })
+        //alterRecipeList(food)
         
     }
     if (data?.name === '') {
@@ -66,8 +76,8 @@ const DisplayRecipe = ({
                             <div className='display_comments'>
                                 {data?.comments.map((item) => (
                                     <div className='comment_box'>
-                                        <p>{item.name}</p>
-                                        <p>{item.comment}</p>
+                                        <p>name:{item.name}</p>
+                                        <p>comment:{item.comment}</p>
                                     </div>
                                 ))}
                             </div>
