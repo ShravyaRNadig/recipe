@@ -3,12 +3,10 @@ import { Link } from "react-router-dom";
 import * as Icons from "react-icons/fa";
 import "./styleSheets/Navbar.css";
 import { navItems } from "./NavItems";
-import Button from "./Button";
 
 function Navbar() {
-    const [dropdown, setDropdown] = useState(false);
 
-    return (
+ return (
         <>
             <nav className=" navbar">
                 <Link to="/home" className="navbar-logo">
@@ -24,14 +22,6 @@ function Navbar() {
                         );
                     })}
                 </ul>
-                <input list="browsers" name="browser" />
-                <datalist id="browsers">
-                    <option value="Internet Explorer" />
-                    <option value="Firefox" />
-                    <option value="Chrome" />
-                    <option value="Opera" />
-                    <option value="Safari" />
-                </datalist>
             </nav>
         </>
     );

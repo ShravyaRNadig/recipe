@@ -31,7 +31,6 @@ const Login = (props) => {
     event.preventDefault();
     
     var { uname, pass } = document.forms[0];
-    console.log('Login',uname.value)
     // Find user login info
     const userData = database.find((user) => user.username === uname.value);
 

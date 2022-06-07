@@ -19,15 +19,11 @@ const DisplayRecipe = ({
         e.preventDefault();
         let food = foodRecipes
         food.recipes.map((item) => {
-            // console.log('Item',item)
             if(item.country === region){
-                console.log('Region',item.country)
                 item.data.meals.map((mealItem) => {
                     if(mealItem.name === meal){
-                        console.log('Meal',mealItem)
                         mealItem.data.map((recipeitem)=>{
                             if(recipeitem.name === data.name){
-                                console.log('Recipe',recipeitem.name)
                                 let obj = {
                                     "name": sessionStorage.getItem('userName'),
                                      "comment": comment

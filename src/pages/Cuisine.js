@@ -7,7 +7,8 @@ const Cuisine = () => {
 	const [recipe, setRecipe] = useState({
 		"name": "",
 		"items": [],
-		"waysToPrepare": ""
+		"waysToPrepare": "",
+		"comments":[]
 	})
 	const [region, setRegion] = useState('')
 	const [meal, setMeal] = useState('')
