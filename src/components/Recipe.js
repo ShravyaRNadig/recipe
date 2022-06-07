@@ -6,6 +6,8 @@ const Recipe = (props) => {
   const { foodRecipes, alterRecipeList } = useRecipe();
 
   const [recipesJson, setRecipesJson] = useState(foodRecipes)
+  const [region, setRegion] = useState('')
+  const [meal, setMeal] = useState('')
 
   const [cuisineList, setCuisineList] = useState([])
   const [selectedCuisine, setSelectedCuisine] = useState({});
@@ -19,7 +21,6 @@ const Recipe = (props) => {
   const [selectedRecipe, setSelectedRecipe] = useState({})
   const [selectedRecipeValue, setSelectedRecipeValue] = useState('default');
 
-  console.log(foodRecipes, 'Food')
   useEffect(() => {
     updateCuisiineList()
   }, [])
@@ -53,23 +54,11 @@ const Recipe = (props) => {
 
   const updateMealList = (obj) => {
     setMealList([])
-    setRecipeList([' '])
-    const breakfast = obj.breakfast.length
-    const lunch = obj.lunch.length
-    const dinner = obj.dinner.length
-    let i = 0
-    while (i == 0) {
-      if (breakfast > 0) {
-        setMealList(prevState => [...prevState, 'Breakfast'])
+    obj.meals.map((item) => {
+      if (item.data.length > 0) {
+        setMealList(prevState => [...prevState, item.name])
       }
-      if (lunch > 0) {
-        setMealList(prevState => [...prevState, 'Lunch'])
-      }
-      if (dinner > 0) {
-        setMealList(prevState => [...prevState, 'Dinner'])
-      }
-      i++
-    }
+    })
   }
 
   const updateRecipeList = (arr) => {
@@ -87,7 +76,8 @@ const Recipe = (props) => {
     setSelectedCuisineValue(value)
     recipesJson.recipes.map((item) => {
       if (value === item.country) {
-        setSelectedCuisine(item.data)
+        props.handleRegionChange(value)
+        setSelectedCuisine(item.data) // data of the country is set
         updateMealList(item.data)
       }
     })
@@ -97,20 +87,13 @@ const Recipe = (props) => {
     changeToDefaultRecipe()
     const value = e.target.value
     setSelectedMealValue(value)
-    switch (value) {
-      case 'Breakfast':
-        setSelectedMeal(selectedCuisine.breakfast) 
-        updateRecipeList(selectedCuisine.breakfast)
-        break;
-      case 'Lunch':
-        setSelectedMeal(selectedCuisine.lunch)
-        updateRecipeList(selectedCuisine.lunch)
-        break;
-      case 'Dinner':
-        setSelectedMeal(selectedCuisine.dinner)
-        updateRecipeList(selectedCuisine.dinner)
-        break;
-    }
+    selectedCuisine.meals.map((item) => {
+      if (item.name === value) {
+        setSelectedMeal(item.data) // data of the different recipes available for that perticular mealis set
+        updateRecipeList(item.data)
+        props.handleMealChange(value)
+      }
+    })
   }
 
   const onRecipeChange = (e) => {
@@ -122,7 +105,7 @@ const Recipe = (props) => {
         selected = item
       }
     })
-    setSelectedRecipe(selected)
+    setSelectedRecipe(selected) // data of the selected recipe is set
     props.handleRecipeChange(selected)
   }
 

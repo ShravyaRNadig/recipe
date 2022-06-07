@@ -19,13 +19,14 @@ export const useRecipe = () => {
 
 const RecipeContext = ({ children }) => {
   const [foodRecipes, setFoodRecipes] = useState(food);
-
+  const [count,setCount] = useState(0)
   // useEffect(() => {
   //   setFoodRecipes(foodRecipes);
   // }, []);
 
-  const alterRecipeList = (list) => {
-    setFoodRecipes(list);
+  const alterRecipeList = (recipes) => {
+    setFoodRecipes({...recipes});
+    setCount(count+1)
   };
 
   return (
