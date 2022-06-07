@@ -8,7 +8,7 @@ const DisplayRecipe = (props) => {
 
     if (props.data.name === '') {
         return (
-            <div> 
+            <div>
                 <h1>No recipe selected</h1>
                 <h3>Please selected desired options in the dropdown above</h3>
             </div>
@@ -25,8 +25,12 @@ const DisplayRecipe = (props) => {
                             <h5>{item}</h5>
                         ))}</div>
                     <div>
-                        <h1>Instrections</h1>
-                        <h5>{props?.data?.waysToPrepare}</h5>
+                        <h1>Instructions</h1>
+                        <ul>
+                            {props?.data?.waysToPrepare.map((instruction) => (
+                                <li>{instruction}</li>
+                            ))}
+                        </ul>
                     </div>
                     <div>
                         <h1>Comments</h1><br />
