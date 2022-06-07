@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import foodRecipes from '../data/foodRecipes.json'
+import { useRecipe } from "../RecipeContext"
 
 const Recipe = (props) => {
+
+  const { foodRecipes, alterRecipeList } = useRecipe();
+
+  const [recipesJson, setRecipesJson] = useState(foodRecipes)
 
   const [cuisineList, setCuisineList] = useState([])
   const [selectedCuisine, setSelectedCuisine] = useState({});
@@ -14,13 +18,17 @@ const Recipe = (props) => {
   const [recipeList, setRecipeList] = useState([])
   const [selectedRecipe, setSelectedRecipe] = useState({})
   const [selectedRecipeValue, setSelectedRecipeValue] = useState('default');
-  
 
+  console.log(foodRecipes, 'Food')
   useEffect(() => {
     updateCuisiineList()
-  },[])
+  }, [])
 
-  const changeToDefaultMealRecipe = ()  => {
+  useEffect(() => {
+    setRecipesJson(foodRecipes)
+  }, [foodRecipes])
+
+  const changeToDefaultMealRecipe = () => {
     setSelectedMealValue('default')
     setSelectedRecipeValue('default')
     props.handleRecipeChange({
@@ -37,7 +45,7 @@ const Recipe = (props) => {
 
   const updateCuisiineList = () => {
     let list = [];
-    foodRecipes.recipes.map((item) => {
+    recipesJson.recipes.map((item) => {
       list.push(item.country)
     })
     setCuisineList(list)
@@ -77,7 +85,7 @@ const Recipe = (props) => {
     changeToDefaultMealRecipe()
     const value = event.target.value
     setSelectedCuisineValue(value)
-    foodRecipes.recipes.map((item) => {
+    recipesJson.recipes.map((item) => {
       if (value === item.country) {
         setSelectedCuisine(item.data)
         updateMealList(item.data)
@@ -91,7 +99,7 @@ const Recipe = (props) => {
     setSelectedMealValue(value)
     switch (value) {
       case 'Breakfast':
-        setSelectedMeal(selectedCuisine.breakfast) //array of objects
+        setSelectedMeal(selectedCuisine.breakfast) 
         updateRecipeList(selectedCuisine.breakfast)
         break;
       case 'Lunch':
@@ -121,7 +129,7 @@ const Recipe = (props) => {
   return (
     <div>
       <select onChange={onCuisineChange} value={selectedCuisineValue}>
-      <option value="default"  disabled>Select Cuisine</option>
+        <option value="default" disabled>Select Cuisine</option>
         {
           cuisineList.map((cuisineItem) =>
             (<option value={cuisineItem}>{cuisineItem}</option>)
@@ -130,7 +138,7 @@ const Recipe = (props) => {
       </select>
 
       <select onChange={onMealChange} value={selectedMealValue}>
-      <option value="default" selected disabled >Select Meal</option>
+        <option value="default" disabled >Select Meal</option>
         {
           mealList.map((timeItem) =>
             (<option value={timeItem}>{timeItem}</option>)
@@ -139,7 +147,7 @@ const Recipe = (props) => {
       </select>
 
       <select onChange={onRecipeChange} value={selectedRecipeValue}>
-      <option value="default" selected disabled>Select Recipe</option>
+        <option value="default" disabled>Select Recipe</option>
         {
           recipeList.map((recipeItem) =>
             <option value={recipeItem}>{recipeItem}</option>
