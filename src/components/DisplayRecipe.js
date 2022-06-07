@@ -6,10 +6,11 @@ const DisplayRecipe = (props) => {
         justifyContent: 'center',
     };
 
-    if (Object.keys(props.data).length === 0 && props.data.constructor === Object) {
+    if (props.data.name === '') {
         return (
-            <div>
+            <div> 
                 <h1>No recipe selected</h1>
+                <h3>Please selected desired options in the dropdown above</h3>
             </div>
         )
     } else {

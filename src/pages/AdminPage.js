@@ -1,5 +1,5 @@
 import {useState} from 'react';
-
+import './styleSheets/AdminPage.css';
 const AdminPage = () => {
 
     const [sidebarOpen,setSidebarOpen] = useState(false);
