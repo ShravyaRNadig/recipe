@@ -1,99 +1,127 @@
-import React, { useState } from 'react';
-import indianFood from '../data/indianFood.json'
-import mexicanFood from '../data/mexicanFood.json'
-import americanFood from '../data/americanFood.json'
+import React, { useState, useEffect } from 'react';
+import foodRecipes from '../data/foodRecipes.json'
 
 const Recipe = (props) => {
-  //alert('Entered recipe')
-  const [cuisine, setCuisine] = useState({});
-  const [cuisineList, setCuisineList] = useState([" ", "Indian", "American", "Mexican"])
 
-  const [time, setTime] = useState({});
-  const [timeList, setTimeList] = useState([])
+  const [cuisineList, setCuisineList] = useState([])
+  const [selectedCuisine, setSelectedCuisine] = useState({});
+  const [selectedCuisineValue, setSelectedCuisineValue] = useState('default');
 
-  const [recipe, setRecipe] = useState({})
+  const [mealList, setMealList] = useState([])
+  const [selectedMeal, setSelectedMeal] = useState({});
+  const [selectedMealValue, setSelectedMealValue] = useState('default');
+
   const [recipeList, setRecipeList] = useState([])
+  const [selectedRecipe, setSelectedRecipe] = useState({})
+  const [selectedRecipeValue, setSelectedRecipeValue] = useState('default');
+  
 
-  const updateTimeList = (obj) => {
-    setTimeList([' '])
+  useEffect(() => {
+    updateCuisiineList()
+  },[])
+
+  const changeToDefaultMealRecipe = ()  => {
+    setSelectedMealValue('default')
+    setSelectedRecipeValue('default')
+    props.handleRecipeChange({
+      name: '',
+    })
+  }
+
+  const changeToDefaultRecipe = () => {
+    setSelectedRecipeValue('default')
+    props.handleRecipeChange({
+      name: '',
+    })
+  }
+
+  const updateCuisiineList = () => {
+    let list = [];
+    foodRecipes.recipes.map((item) => {
+      list.push(item.country)
+    })
+    setCuisineList(list)
+  }
+
+  const updateMealList = (obj) => {
+    setMealList([])
     setRecipeList([' '])
-    if (obj.breakfast.length > 0 && obj.lunch.length > 0 && obj.dinner.length > 0) {
-      setTimeList(['','Breakfast', 'Lunch', 'Dinner'])
-    } else if (obj.breakfast.length > 0 && obj.lunch.length > 0) {
-      setTimeList(['','Breakfast', 'Lunch'])
-    } else if (obj.breakfast.length > 0 && obj.dinner.length > 0) {
-      setTimeList(['','Breakfast', 'Dinner'])
-    } else if (obj.lunch.length > 0 && obj.dinner.length > 0) {
-      setTimeList(['','Lunch', 'Dinner'])
-    } else if (obj.breakfast.length > 0) {
-      setTimeList(['','Breakfast'])
-    } else if (obj.lunch.length > 0) {
-      setTimeList(['','Lunch'])
-    } else if (obj.dinner.length > 0) {
-      setTimeList(['','Dinner'])
+    const breakfast = obj.breakfast.length
+    const lunch = obj.lunch.length
+    const dinner = obj.dinner.length
+    let i = 0
+    while (i == 0) {
+      if (breakfast > 0) {
+        setMealList(prevState => [...prevState, 'Breakfast'])
+      }
+      if (lunch > 0) {
+        setMealList(prevState => [...prevState, 'Lunch'])
+      }
+      if (dinner > 0) {
+        setMealList(prevState => [...prevState, 'Dinner'])
+      }
+      i++
     }
-    
   }
 
   const updateRecipeList = (arr) => {
     setRecipeList([])
-    let itemNames = [' ']
+    let itemNames = []
     arr.map((item) => {
       itemNames.push(item.name)
     })
     setRecipeList(itemNames)
   }
 
-  const cuisineChange = (event) => {
-    console.log('Cuisine', event.target.value)
-    switch (event.target.value) {
-      case 'Indian':
-        setCuisine(indianFood)
-        updateTimeList(indianFood)
-        break;
-      case 'American':
-        setCuisine(americanFood)
-        updateTimeList(americanFood)
-        break;
-      case 'Mexican':
-        setCuisine(mexicanFood)
-        updateTimeList(mexicanFood)
-        break;
-      case ' ':
-        setCuisine(null)
-        setTimeList([])
-    }
-  }
-
-  const timeChange = (e) => {
-    switch (e.target.value) {
-      case 'Breakfast':
-        setTime(cuisine.breakfast) //array of objects
-        updateRecipeList(cuisine.breakfast)
-        break;
-      case 'Lunch':
-        setTime(cuisine.lunch)
-        updateRecipeList(cuisine.lunch)
-        break;
-      case 'Dinner':
-        setTime(cuisine.dinner)
-        updateRecipeList(cuisine.dinner)
-        break;
-    }
-  }
-
-  const recipeChange = (e) => {
-    let selectedRecipe
-    time.map((item) => {
-      if (item.name === e.target.value) {
-        selectedRecipe = item
+  const onCuisineChange = (event) => {
+    changeToDefaultMealRecipe()
+    const value = event.target.value
+    setSelectedCuisineValue(value)
+    foodRecipes.recipes.map((item) => {
+      if (value === item.country) {
+        setSelectedCuisine(item.data)
+        updateMealList(item.data)
       }
     })
-    props.handleRecipeChange(selectedRecipe)
   }
+
+  const onMealChange = (e) => {
+    changeToDefaultRecipe()
+    const value = e.target.value
+    setSelectedMealValue(value)
+    switch (value) {
+      case 'Breakfast':
+        setSelectedMeal(selectedCuisine.breakfast) //array of objects
+        updateRecipeList(selectedCuisine.breakfast)
+        break;
+      case 'Lunch':
+        setSelectedMeal(selectedCuisine.lunch)
+        updateRecipeList(selectedCuisine.lunch)
+        break;
+      case 'Dinner':
+        setSelectedMeal(selectedCuisine.dinner)
+        updateRecipeList(selectedCuisine.dinner)
+        break;
+    }
+  }
+
+  const onRecipeChange = (e) => {
+    const value = e.target.value
+    setSelectedRecipeValue(value)
+    let selected
+    selectedMeal.map((item) => {
+      if (item.name === value) {
+        selected = item
+      }
+    })
+    setSelectedRecipe(selected)
+    props.handleRecipeChange(selected)
+  }
+
   return (
     <div>
-      <select onChange={cuisineChange}>
+      <select onChange={onCuisineChange} value={selectedCuisineValue}>
+      <option value="default"  disabled>Select Cuisine</option>
         {
           cuisineList.map((cuisineItem) =>
             (<option value={cuisineItem}>{cuisineItem}</option>)
@@ -101,15 +129,17 @@ const Recipe = (props) => {
         }
       </select>
 
-      <select onChange={timeChange}>
+      <select onChange={onMealChange} value={selectedMealValue}>
+      <option value="default" selected disabled >Select Meal</option>
         {
-          timeList.map((timeItem) =>
+          mealList.map((timeItem) =>
             (<option value={timeItem}>{timeItem}</option>)
           )
         }
       </select>
 
-      <select onChange={recipeChange}>
+      <select onChange={onRecipeChange} value={selectedRecipeValue}>
+      <option value="default" selected disabled>Select Recipe</option>
         {
           recipeList.map((recipeItem) =>
             <option value={recipeItem}>{recipeItem}</option>
