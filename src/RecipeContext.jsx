@@ -1,5 +1,6 @@
 import React, { useContext, createContext, useState, useEffect } from "react";
 import food from "./data/foodRecipes.json";
+import test from './data/test.json'
 
 const Recipe = createContext({
   foodRecipes: {
@@ -26,6 +27,7 @@ const RecipeContext = ({ children }) => {
 
   const alterRecipeList = (list) => {
     setFoodRecipes(list);
+    console.log('List',list)
   };
 
   return (

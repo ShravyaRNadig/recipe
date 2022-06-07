@@ -1,12 +1,40 @@
-import React from 'react';
-const DisplayRecipe = (props) => {
+import React , { useState } from 'react';
+import { useRecipe } from "../RecipeContext"
+
+const DisplayRecipe = ({
+    data,
+    region,
+    meal
+}) => {
+    const { foodRecipes, alterRecipeList } = useRecipe();
+    const [comment, setComment] = useState("");
+
     const styles = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
     };
 
-    if (props.data.name === '') {
+    const handleAddCommentSubmit = (e) => {
+        e.preventDefault();
+        let food = foodRecipes
+        food.recipes.map((item) => {
+            console.log('Item',item)
+            if(item.country === region){
+                console.log('Region',item.country)
+                // if(item.name.meal.length > 0){
+                //     let com = {
+                //          "name": sessionStorage.getItem("name"),
+                //          "comment": comment
+                //         }
+                //     item.name.meal.comments.push(com)
+                //     alterRecipeList(food)
+                // }
+            }
+        })
+        
+    }
+    if (data?.name === '') {
         return (
             <div>
                 <h1>No recipe selected</h1>
@@ -17,23 +45,43 @@ const DisplayRecipe = (props) => {
         return (
             <div>
                 <div style={styles}>
-                    <h1>{props?.data?.name}</h1></div>
+                    <h1>{data?.name}</h1></div>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 0.5 }}>
                     <div>
                         <h1>Ingredients</h1>
-                        {props?.data?.items.map((item) => (
+                        {data?.items.map((item) => (
                             <h5>{item}</h5>
                         ))}</div>
                     <div>
                         <h1>Instructions</h1>
                         <ul>
-                            {props?.data?.waysToPrepare.map((instruction) => (
+                            {data?.waysToPrepare.map((instruction) => (
                                 <li>{instruction}</li>
                             ))}
                         </ul>
                     </div>
                     <div>
-                        <h1>Comments</h1><br />
+                        <h1>Comments</h1>
+                        <div className='comment_section'>
+                            <div className='display_comments'>
+                                {data?.comments.map((item) => (
+                                    <div className='comment_box'>
+                                        <p>{item.name}</p>
+                                        <p>{item.comment}</p>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className='add_comment'>
+                                <form onSubmit={handleAddCommentSubmit}>
+                                    <input
+                                        type="text"
+                                        value={comment}
+                                        onChange={(e) => setComment(e.target.value)}
+                                    />
+                                    <button type="submit">Add Comment</button>
+                                </form>
+                            </div>
+                        </div>
                         <h1>Ratings</h1>
                     </div>
                 </div>

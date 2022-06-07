@@ -43,6 +43,7 @@ const Login = (props) => {
         setIsSubmitted(true);
         navigate('./home', { replace: true }); 
         sessionStorage.setItem("auth", 'Authenticated');
+        sessionStorage.setItem("userName", uname);
       }
     } else {
       // Username not found

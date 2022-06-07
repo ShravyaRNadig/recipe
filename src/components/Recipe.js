@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';   
 import { useRecipe } from "../RecipeContext"
 
 const Recipe = (props) => {
@@ -6,6 +6,8 @@ const Recipe = (props) => {
   const { foodRecipes, alterRecipeList } = useRecipe();
 
   const [recipesJson, setRecipesJson] = useState(foodRecipes)
+  const [region,setRegion] = useState('')
+  const [meal,setMeal] = useState('')
 
   const [cuisineList, setCuisineList] = useState([])
   const [selectedCuisine, setSelectedCuisine] = useState({});
@@ -87,6 +89,7 @@ const Recipe = (props) => {
     setSelectedCuisineValue(value)
     recipesJson.recipes.map((item) => {
       if (value === item.country) {
+        props.handleRegionChange(value)
         setSelectedCuisine(item.data)
         updateMealList(item.data)
       }
@@ -101,14 +104,17 @@ const Recipe = (props) => {
       case 'Breakfast':
         setSelectedMeal(selectedCuisine.breakfast) 
         updateRecipeList(selectedCuisine.breakfast)
+        props.handleMealChange('Breakfast')
         break;
       case 'Lunch':
         setSelectedMeal(selectedCuisine.lunch)
         updateRecipeList(selectedCuisine.lunch)
+        props.handleMealChange('Lunch')
         break;
       case 'Dinner':
         setSelectedMeal(selectedCuisine.dinner)
         updateRecipeList(selectedCuisine.dinner)
+        props.handleMealChange('Dinner')
         break;
     }
   }

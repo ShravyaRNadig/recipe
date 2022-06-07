@@ -9,9 +9,19 @@ const Cuisine = () => {
 		"items": [],
 		"waysToPrepare": ""
 	})
+	const [region, setRegion] = useState('')
+	const [meal, setMeal] = useState('')
 
 	const handleRecipeChange = (selectedRecipe) => {
 		setRecipe(selectedRecipe)
+	}
+
+	const handleRegionChange = (val) => {
+		setRegion(val)
+	}
+
+	const handleMealChange = (val) => {
+		setMeal(val)
 	}
 
 	const styles = {
@@ -28,10 +38,17 @@ const Cuisine = () => {
 		return (
 			<div>
 				<div style={styles}>
-					<Recipe handleRecipeChange={handleRecipeChange} />
-					</div>
-				{/* <Recipe recipeChange={recipeChange} /> */}
-				<DisplayRecipe data={recipe} />
+					<Recipe
+						handleRecipeChange={handleRecipeChange}
+						handleRegionChange={handleRegionChange}
+						handleMealChange={handleMealChange}
+					/>
+				</div>
+				<DisplayRecipe
+					data={recipe}
+					region={region}
+					meal={meal}
+				/>
 			</div>
 		)
 	} else {
