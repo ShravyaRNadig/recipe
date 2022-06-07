@@ -7,12 +7,12 @@ const Search = () => {
     const { foodRecipes, alterRecipeList } = useRecipe();
 
     const [options, setOptions] = useState([])
-    const [data,setData] = useState({
-		"name": "",
-		"items": [],
-		"waysToPrepare": "",
-		"comments":[]
-	})
+    const [data, setData] = useState({
+        "name": "",
+        "items": [],
+        "waysToPrepare": "",
+        "comments": []
+    })
     const [region, setRegion] = useState('')
     const [meal, setMeal] = useState('')
 
@@ -22,7 +22,7 @@ const Search = () => {
             item.data.meals.map((mealItem) => {
                 mealItem.data.map((dishItem) => {
                     let object = {
-                        label: "Dish "+ dishItem.name + " from " + item.country,
+                        label: "Dish " + dishItem.name + " from " + item.country + " cuisine",
                         value: dishItem.name,
                         data: dishItem,
                         region: item.country,
@@ -31,7 +31,7 @@ const Search = () => {
                     setOptions(prevState => [...prevState, object])
                     dishItem.items.map((ingredientsItem) => {
                         let object = {
-                            label: "Ingredients "+ingredientsItem + " of dish " + dishItem.name + " from " + item.country,
+                            label: "Ingredients " + ingredientsItem + " of dish " + dishItem.name + " from " + item.country + " cuisine",
                             value: dishItem.name,
                             data: dishItem,
                             region: item.country,
@@ -51,20 +51,34 @@ const Search = () => {
         setMeal(opt.region)
     }
 
-    return (
-        <div>
-            <Select
-                options={options}
-                onChange={handleSelectChange}
-            />
-            <DisplayRecipe
-                data={data}
-                region={region}
-                meal={meal}
-            />
-        </div>
+    const handleAuthRedirect = () => {
+        window.location.href = '/'
+    }
 
-    )
+    if (sessionStorage.getItem("auth") === 'Authenticated') {
+        return (
+            <div>
+                <Select
+                    options={options}
+                    onChange={handleSelectChange}
+                />
+                <DisplayRecipe
+                    data={data}
+                    region={region}
+                    meal={meal}
+                />
+            </div>
+
+        )
+    } else {
+        return (
+            <div>
+                <h1>You are not authorized to view this page</h1>
+                <h2>Please login to view this page</h2>
+                <button onClick={handleAuthRedirect}>Login/Signup</button>
+            </div>
+        )
+    }
 }
 
 export default Search
