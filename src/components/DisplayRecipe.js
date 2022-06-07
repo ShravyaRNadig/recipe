@@ -8,7 +8,7 @@ const DisplayRecipe = ({
 }) => {
     const { foodRecipes, alterRecipeList } = useRecipe();
     const [comment, setComment] = useState("");
-
+    
     const styles = {
         display: 'flex',
         alignItems: 'center',
@@ -37,7 +37,6 @@ const DisplayRecipe = ({
                 })
             }
         })
-        //alterRecipeList(food)
         
     }
     if (data?.name === '') {

@@ -48,7 +48,7 @@ const Search = () => {
     const handleSelectChange = (opt) => {
         setData(opt.data)
         setMeal(opt.meal)
-        setMeal(opt.region)
+        setRegion(opt.region)
     }
 
     const handleAuthRedirect = () => {
