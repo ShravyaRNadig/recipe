@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const Box = styled.div`
-padding: 20px 20px;
+padding: 5px 5px;
 background: black;
 position: absolute;
+left:0;
 bottom: 0;
 width: 100%;
 
@@ -56,6 +57,6 @@ text-decoration: none;
 export const Heading = styled.p`
 font-size: 24px;
 color: #fff;
-margin-bottom: 40px;
+margin-bottom: 5px;
 font-weight: bold;
 `;

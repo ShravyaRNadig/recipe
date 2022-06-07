@@ -6,7 +6,13 @@
   box-sizing: border-box;
   font-family: "PT Sans", sans-serif;
 }
-
+.app_body{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
 .home,
 /* .cuisine, */
 .signup {
@@ -16,7 +22,7 @@
   height: 90vh;
   font-size: 4rem;
   background-position: center;
-  background-repeat: none; 
+  background-repeat: none;  
    background-size: cover;
   text-shadow: 4px 4px 4px #fff;
 } 
