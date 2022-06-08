@@ -19,6 +19,7 @@ const DisplayRecipe = ({
     const handleAddCommentSubmit = (e) => {
         e.preventDefault();
         let food = foodRecipes
+        if(comment!='' && rating!=''){
         food.recipes.map((item) => {
             if (item.country === region) {
                 item.data.meals.map((mealItem) => {
@@ -40,6 +41,10 @@ const DisplayRecipe = ({
                 })
             }
         })
+    }
+    else{
+        alert('Enter both comment and rating')
+    }
 
     }
     if (data?.name === '') {

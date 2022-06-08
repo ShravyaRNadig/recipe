@@ -7,6 +7,7 @@ const Search = () => {
     const { foodRecipes, alterRecipeList } = useRecipe();
 
     const [options, setOptions] = useState([])
+    const [recipeJson, setRecipeJson] = useState(foodRecipes)
     const [data, setData] = useState({
         "name": "",
         "items": [],
@@ -17,34 +18,50 @@ const Search = () => {
     const [meal, setMeal] = useState('')
 
     useEffect(() => {
+        setRecipeJson(foodRecipes)
+    }, [foodRecipes])
+
+    useEffect(() => {
+        createSearchList(recipeJson)
+    }, [recipeJson])
+
+    const createSearchList = (recipesJson) => {
+        setOptions([])
         let opt = []
-        foodRecipes?.recipes.map((item) => {
-            item.data.meals.map((mealItem) => {
-                mealItem.data.map((dishItem) => {
-                    let object = {
-                        label: "Dish " + dishItem.name + " from " + item.country + " cuisine",
-                        value: dishItem.name,
-                        data: dishItem,
-                        region: item.country,
-                        meal: mealItem.name
+        recipesJson?.recipes.map((item) => {
+            //console.log('recipes', item)
+            if (item.data.meals != undefined) {
+                item?.data.meals.map((mealItem) => {
+                    if (mealItem.data != undefined) {
+                        mealItem.data.map((dishItem) => {
+                            let object = {
+                                label: "Dish " + dishItem.name + " from " + item.country + " cuisine",
+                                value: dishItem.name,
+                                data: dishItem,
+                                region: item.country,
+                                meal: mealItem.name
+                            }
+                            setOptions(prevState => [...prevState, object])
+                            if (dishItem.items != undefined) {
+                                dishItem.items.map((ingredientsItem) => {
+                                    let object = {
+                                        label: "Ingredients " + ingredientsItem + " of dish " + dishItem.name + " from " + item.country + " cuisine",
+                                        value: dishItem.name,
+                                        data: dishItem,
+                                        region: item.country,
+                                        meal: mealItem.name
+                                    }
+                                    setOptions(prevState => [...prevState, object])
+                                })
+                            }
+                        })
                     }
-                    setOptions(prevState => [...prevState, object])
-                    dishItem.items.map((ingredientsItem) => {
-                        let object = {
-                            label: "Ingredients " + ingredientsItem + " of dish " + dishItem.name + " from " + item.country + " cuisine",
-                            value: dishItem.name,
-                            data: dishItem,
-                            region: item.country,
-                            meal: mealItem.name
-                        }
-                        setOptions(prevState => [...prevState, object])
-                    })
                 })
-            })
+            }
+
 
         })
-    }, [])
-
+    }
     const handleSelectChange = (opt) => {
         setData(opt.data)
         setMeal(opt.meal)
@@ -56,6 +73,7 @@ const Search = () => {
     }
 
     if (sessionStorage.getItem("auth") === 'Authenticated') {
+        console.log('Select options', options)
         return (
             <div>
                 <Select

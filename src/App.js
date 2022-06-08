@@ -8,11 +8,19 @@ import Auth from './pages/Auth';
 import Footer from "./components/Footer";
 import Contribute from "./pages/Contribute";
 import Search from "./pages/Search";
+import db from './firebase/config'
+import { onValue,  ref, set } from "firebase/database";
+
 
 function App() {
+// const btnClick = () => {
+//   onValue(ref(db, "foodRecipes/recipes"), (data) => {
+//     console.log("Data from Food recipes", data.val());
+//   });
+// }
   return (
-
     <div >
+      {/* <button onClick={btnClick}>Click</button> */}
       <BrowserRouter>
         <Navbar />
         <Routes>
