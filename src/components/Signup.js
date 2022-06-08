@@ -43,6 +43,7 @@ const Signup = (props) => {
             navigate('./home', { replace: true });
             sessionStorage.setItem("auth", 'Authenticated');
             sessionStorage.setItem("userName", name);
+            props.handleLoginNavItem(name)
         }
     };
 

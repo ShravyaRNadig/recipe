@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import * as Icons from "react-icons/fa";
 import "./styleSheets/Navbar.css";
-import { navItems } from "./NavItems";
 
-function Navbar() {
+function Navbar(props) {
 
  return (
         <>
@@ -14,7 +13,7 @@ function Navbar() {
                     <Icons.FaCarrot />
                 </Link>
                 <ul className="nav-items">
-                    {navItems.map((item) => {
+                    {props.navItems.map((item) => {
                         return (
                             <li key={item.id} className={item.cName}>
                                 <Link to={item.path}>{item.title}</Link>

@@ -6,10 +6,10 @@ const Contribute = () => {
     const { foodRecipes, alterRecipeList } = useRecipe();
 
     const [countryList, setCountryList] = useState([])
-    const [selectedCountry, setSelectedCountry] = useState('')
+    const [selectedCountry, setSelectedCountry] = useState('default')
 
     const [mealList, setMealList] = useState([])
-    const [selectedMeal, setSelectedMeal] = useState('')
+    const [selectedMeal, setSelectedMeal] = useState('default')
 
     const [dishName, setDishName] = useState('')
 
@@ -58,6 +58,7 @@ const Contribute = () => {
             ingredient: ingredientsArr,
             waysToPrepare: waysToPrepareArr
         }
+        console.log('Contribute',contribution)
     }
 
     const handleAuthRedirect = () => {

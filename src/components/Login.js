@@ -8,7 +8,7 @@ const Login = (props) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const navigate = useNavigate()
-  
+
   // User Login info
   const database = [
     {
@@ -18,6 +18,10 @@ const Login = (props) => {
     {
       username: "user2",
       password: "pass2"
+    },
+    {
+      username: "admin",
+      password: "admin"
     }
   ];
 
@@ -29,7 +33,7 @@ const Login = (props) => {
   const handleSubmit = (event) => {
     //Prevent page reload
     event.preventDefault();
-    
+
     var { uname, pass } = document.forms[0];
     // Find user login info
     const userData = database.find((user) => user.username === uname.value);
@@ -39,11 +43,18 @@ const Login = (props) => {
       if (userData.password !== pass.value) {
         // Invalid password
         setErrorMessages({ name: "pass", message: errors.pass });
-      } else {
-        setIsSubmitted(true);
-        navigate('./home', { replace: true }); 
+      } else if (uname.value === 'admin' && pass.value === 'admin') {
+        // Admin login
+        navigate('/admin/addRecipe')
         sessionStorage.setItem("auth", 'Authenticated');
         sessionStorage.setItem("userName", uname.value);
+        props.handleLoginNavItem(uname.value)
+      } else {
+        setIsSubmitted(true);
+        navigate('./home', { replace: true });
+        sessionStorage.setItem("auth", 'Authenticated');
+        sessionStorage.setItem("userName", uname.value);
+        props.handleLoginNavItem(uname.value)
       }
     } else {
       // Username not found
@@ -51,15 +62,15 @@ const Login = (props) => {
     }
   };
 
-    // Generate JSX code for error message
-    const renderErrorMessage = (name) =>
+  // Generate JSX code for error message
+  const renderErrorMessage = (name) =>
     name === errorMessages.name && (
       <div className="error">{errorMessages.message}</div>
     );
 
-    const onSignupOptionClick = ()=>{
-      props.handleOldUser(false)
-    }
+  const onSignupOptionClick = () => {
+    props.handleOldUser(false)
+  }
 
   return (
     <div className="form">
