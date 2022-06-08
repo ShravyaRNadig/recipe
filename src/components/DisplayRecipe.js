@@ -19,34 +19,59 @@ const DisplayRecipe = ({
     const handleAddCommentSubmit = (e) => {
         e.preventDefault();
         let food = foodRecipes
-        if(comment!='' && rating!=''){
-        food.recipes.map((item) => {
-            if (item.country === region) {
-                item.data.meals.map((mealItem) => {
-                    if (mealItem.name === meal) {
-                        mealItem.data.map((recipeitem) => {
-                            if (recipeitem.name === data.name) {
-                                let obj = {
-                                    "name": sessionStorage.getItem('userName'),
-                                    "comment": comment,
-                                    "rating": rating
+        if (comment != '' && rating != '') {
+            food.recipes.map((item) => {
+                if (item.country === region) {
+                    item.data.meals.map((mealItem) => {
+                        if (mealItem.name === meal) {
+                            mealItem.data.map((recipeitem) => {
+                                if (recipeitem.name === data.name) {
+                                    let obj = {
+                                        "name": sessionStorage.getItem('userName'),
+                                        "comment": comment,
+                                        "rating": rating
+                                    }
+                                    recipeitem.comments.push(obj)
+                                    alterRecipeList(food)
+                                    setComment("")
+                                    setRating("")
                                 }
-                                recipeitem.comments.push(obj)
-                                alterRecipeList(food)
-                                setComment("")
-                                setRating("")
-                            }
-                        })
-                    }
-                })
-            }
-        })
-    }
-    else{
-        alert('Enter both comment and rating')
-    }
+                            })
+                        }
+                    })
+                }
+            })
+        }
+        else {
+            alert('Enter both comment and rating')
+        }
 
     }
+
+
+    const populateComments = (commentsData) => {
+        console.log('Comments', commentsData)
+        if (commentsData != undefined) {
+            return (
+                <div className='display_comments'>
+                    {commentsData.map((item) => (
+                        <div className='comment_box'>
+                            <p>name:{item.name}</p>
+                            <p>rating:{item.rating}</p>
+                            <p>comment:{item.comment}</p>
+                        </div>
+                    ))}
+                </div>
+            )
+        } else {
+            return (
+                <div className='display_comments'>
+                    <p>No comments</p>
+                </div>
+            )
+        }
+    }
+
     if (data?.name === '') {
         return (
             <div>
@@ -76,15 +101,7 @@ const DisplayRecipe = ({
                     <div>
                         <h1>Comments</h1>
                         <div className='comment_section'>
-                            <div className='display_comments'>
-                                {data?.comments.map((item) => (
-                                    <div className='comment_box'>
-                                        <p>name:{item.name}</p>
-                                        <p>rating:{item.rating}</p>
-                                        <p>comment:{item.comment}</p>
-                                    </div>
-                                ))}
-                            </div>
+                            {populateComments(data.comments)}
                             <div className='add_comment'>
                                 <form onSubmit={handleAddCommentSubmit}>
                                     <input
@@ -100,7 +117,7 @@ const DisplayRecipe = ({
                                 </form>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

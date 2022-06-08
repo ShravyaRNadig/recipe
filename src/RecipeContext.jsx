@@ -2,7 +2,7 @@ import React, { useContext, createContext, useState, useEffect } from "react";
 import food from "./data/foodRecipes.json";
 import { readFirebase } from "./firebase/functions";
 import db from "./firebase/config";
-import { onValue, ref, set , update} from "firebase/database";
+import { onValue, ref, set, update } from "firebase/database";
 
 const Recipe = createContext({
   foodRecipes: {
@@ -14,6 +14,7 @@ const Recipe = createContext({
     ],
   },
   alterRecipeList: () => {},
+  alterContributionList: () => {}
 });
 
 export const useRecipe = () => {
@@ -22,46 +23,62 @@ export const useRecipe = () => {
 
 const RecipeContext = ({ children }) => {
   const dummyObj = {
-    "recipes": [
+    recipes: [
       {
-        "country": "",
-        "data": {
-          "meals": [
+        country: "",
+        data: {
+          meals: [
             {
-              "name": "",
-              "data": [
+              name: "",
+              data: [
                 {
-                  "name": "",
-                  "items": [""],
-                  "waysToPrepare": [""],
-                  "comments": [{}]
-                }
-              ]
-            }
-          ]
-        }
-      }
-    ]
+                  name: "",
+                  items: [""],
+                  waysToPrepare: [""],
+                  comments: [{}],
+                },
+              ],
+            },
+          ],
+        },
+      },
+    ],
+    contributions: [
+      {
+        country: "",
+        meal: "",
+        dishName: "",
+        ingredient: [],
+        waysToPrepare: [],
+      },
+    ],
   };
   const [foodRecipes, setFoodRecipes] = useState(dummyObj);
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     onValue(ref(db, "foodRecipes"), (data) => {
-      //console.log("Data from APi context", data.val());
-        setFoodRecipes(foodRecipes=>({ ...data.val() }));
+      console.log("Data from APi context", data.val());
+      setFoodRecipes((foodRecipes) => ({ ...data.val() }));
     });
-  },[]);
+  }, []);
 
-  const alterRecipeList = (recipes) => {   
+  const alterRecipeList = (recipes) => {
     setFoodRecipes({ ...recipes });
     update(ref(db, "foodRecipes"), {
       recipes: [...recipes.recipes],
-    })
+    });
   };
 
+  const alterContributionList = (contributions) => {
+    setFoodRecipes((foodRecipes) => ({ ...foodRecipes, contributions }));
+    update(ref(db, "foodRecipes"), {
+      contributions: [...contributions],
+    });
+  }
+
   return (
-    <Recipe.Provider value={{ foodRecipes, alterRecipeList }}>
+    <Recipe.Provider value={{ foodRecipes, alterRecipeList , alterContributionList}}>
       {children}
     </Recipe.Provider>
   );

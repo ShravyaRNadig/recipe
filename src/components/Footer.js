@@ -1,22 +1,24 @@
 import React from 'react'
 import {
-    Box,
-    Container,
-    Row,
-    Column,
-    FooterLink,
-    Heading,
-  } from "./FooterStyles";
+  Box,
+  Container,
+  Row,
+  Column,
+  FooterLink,
+  Heading,
+} from "./FooterStyles";
 
-  const Footer = () => {
-    return (
-      <Box>
-        <h3 style={{ color: "white", 
-                     textAlign: "center", 
-                     marginTop: "-20px" }}>
-          <br/>©Copyright Recipe 2022
-        </h3>
-        {/* <Container>
+const Footer = () => {
+  return (
+    <Box>
+      <h3 style={{
+        color: "white",
+        textAlign: "center",
+        marginTop: "-20px"
+      }}>
+        <br />©Copyright Recipe 2022
+      </h3>
+      {/* <Container>
           <Row>
             <Column>
               <Heading>About Us</Heading>
@@ -71,7 +73,9 @@ import {
             </Column>
           </Row>
         </Container> */}
-      </Box>
-    );
-  };
-  export default Footer;
+    </Box>
+  );
+};
+export default Footer;
+
+

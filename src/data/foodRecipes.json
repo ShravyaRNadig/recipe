@@ -138,7 +138,19 @@
         "meals": [
           {
             "name": "Breakfast",
-            "data": []
+            "data": [              {
+              "name": "Pancakes",
+              "items": ["raw rice", "urad dal", "parboiled rice"],
+              "waysToPrepare": [
+                "Allow the rice and dal and other ingredients to soak for at least 8 hours or overnight.",
+                " I usually soak them in the morning, blend up the dosa batter in the evening, and leave it to ferment overnight so I can make fresh dosas next morning.",
+                " Some traditionalists soak the rice and dal seperately, grind them separately, and then mix them. ",
+                "To me that just adds unnecessary steps and I prefer to just soak everything together and pay closer attention when I blend so I get the texture right.",
+                " Rice takes just a little longer to blend than the dal, which is perfect because you want the dal to blend smoothly while the rice remains very slightly gritty.",
+                " That helps the dosas turn out crispy. Always drain out the water you soaked the rice and dal in and add fresh, preferably filtered water when you blend the batter."
+              ],
+              "comments": [{ "name": "Vikas", "comment": "Fantastic Dose" , "rating":3 }]
+            }]
           },
           {
             "name": "Lunch",
@@ -212,7 +224,19 @@
         "meals": [
           {
             "name": "Breakfast",
-            "data": []
+            "data": [              {
+              "name": "Nachos",
+              "items": ["raw rice", "urad dal", "parboiled rice"],
+              "waysToPrepare": [
+                "Allow the rice and dal and other ingredients to soak for at least 8 hours or overnight.",
+                " I usually soak them in the morning, blend up the dosa batter in the evening, and leave it to ferment overnight so I can make fresh dosas next morning.",
+                " Some traditionalists soak the rice and dal seperately, grind them separately, and then mix them. ",
+                "To me that just adds unnecessary steps and I prefer to just soak everything together and pay closer attention when I blend so I get the texture right.",
+                " Rice takes just a little longer to blend than the dal, which is perfect because you want the dal to blend smoothly while the rice remains very slightly gritty.",
+                " That helps the dosas turn out crispy. Always drain out the water you soaked the rice and dal in and add fresh, preferably filtered water when you blend the batter."
+              ],
+              "comments": [{ "name": "Vikas", "comment": "Fantastic Dose" , "rating":3 }]
+            }]
           },
           {
             "name": "Lunch",
@@ -285,5 +309,12 @@
         ]
       }
     }
-  ]
+  ],
+  "contributions":[{
+    "country": "",
+    "meal": "",
+    "dishName": "",
+    "ingredient": [{}],
+    "waysToPrepare": [{}]
+  }]
 }

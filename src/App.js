@@ -8,23 +8,13 @@ import Auth from './pages/Auth';
 import Footer from "./components/Footer";
 import Contribute from "./pages/Contribute";
 import Search from "./pages/Search";
-import AddRecipe from './pages/Admin/AddRecipe';
-import Requests from './pages/Admin/Requests';
+import AddRecipe from './pages/AddRecipe';
+import Requests from './pages/Requests';
 import NavItems from "./data/NavItems";
 
 function App() {
 
   const [nav, setNav] = useState(NavItems)
-
-  // useEffect(() => {
-  //   console.log('Session',sessionStorage.getItem("userName"))
-  //   if (sessionStorage.getItem("userName") === 'admin') {
-  //     alert(sessionStorage.getItem("userName"))
-  //     setNav(AdminNavItems)
-  //   } else {
-  //     setNav(NavItems)
-  //   }
-  // })
 
   const updateNavItems = (navItems) =>{
       setNav(navItems)

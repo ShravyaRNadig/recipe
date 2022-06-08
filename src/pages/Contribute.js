@@ -3,7 +3,7 @@ import { useRecipe } from "../RecipeContext"
 
 const Contribute = () => {
 
-    const { foodRecipes, alterRecipeList } = useRecipe();
+    const { foodRecipes, alterRecipeList , alterContributionList } = useRecipe();
 
     const [countryList, setCountryList] = useState([])
     const [selectedCountry, setSelectedCountry] = useState('default')
@@ -51,14 +51,20 @@ const Contribute = () => {
         const ingredientsArr = ingredient.split(',')
         const waysToPrepareArr = waysToPrepare.split(',')
 
-        const contribution = {
+        const obj = {
             country: selectedCountry,
             meal: selectedMeal,
             dishName: dishName,
-            ingredient: ingredientsArr,
-            waysToPrepare: waysToPrepareArr
+            ingredient: [...ingredientsArr],
+            waysToPrepare: [...waysToPrepareArr]
         }
-        console.log('Contribute',contribution)
+        foodRecipes.contributions.push(obj)
+        const contributions = foodRecipes.contributions
+        alterContributionList(contributions)
+        setDishName('')
+        setIngredients('')
+        setWayToPrepare('')
+        alert('Thanks alot for your contribution , our admin will review it and add it to our list')
     }
 
     const handleAuthRedirect = () => {

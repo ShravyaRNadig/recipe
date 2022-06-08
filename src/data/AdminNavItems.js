@@ -7,7 +7,7 @@ const AdminNavItems = [
   },
   {
     id: 2,
-    title: "Reuests",
+    title: "Requests",
     path: "./admin/requests",
     cName: "nav-item",
   }
