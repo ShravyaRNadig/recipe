@@ -55,7 +55,7 @@ const Recipe = (props) => {
   const updateMealList = (obj) => {
     setMealList([])
     obj.meals.map((item) => {
-      if (item.data.length > 0) {
+      if (item.data != undefined && item.data.length > 0) {
         setMealList(prevState => [...prevState, item.name])
       }
     })
