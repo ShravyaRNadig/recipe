@@ -95,7 +95,7 @@ const DisplayRecipe = ({
                                 </form>
                             </div>
                         </div>
-                        <h1>Ratings</h1>
+                        
                     </div>
                 </div>
             </div>
