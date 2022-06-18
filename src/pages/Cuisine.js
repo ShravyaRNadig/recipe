@@ -37,7 +37,7 @@ const Cuisine = () => {
 	}
 	if (sessionStorage.getItem("auth") === 'Authenticated') {
 		return (
-			<div>
+			<div><br/><br/>
 				<div style={styles}>
 					<Recipe
 						handleRecipeChange={handleRecipeChange}

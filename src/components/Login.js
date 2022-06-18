@@ -20,6 +20,30 @@ const Login = (props) => {
       password: "pass2"
     },
     {
+      username: "Shravya",
+      password: "Shravya"
+    },
+    {
+      username: "Kavya",
+      password: "Kavya"
+    },
+    {
+      username: "Ramya",
+      password: "Ramya"
+    },
+    {
+      username: "Srilakshmi",
+      password: "Srilakshmi"
+    },
+    {
+      username: "Brundha",
+      password: "Brundha"
+    },
+    {
+      username: "Vikas",
+      password: "Vikas"
+    },
+    {
       username: "admin",
       password: "admin"
     }

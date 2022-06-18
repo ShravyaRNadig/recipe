@@ -107,12 +107,15 @@ const DisplayRecipe = ({
                                     <input
                                         type="text"
                                         value={comment}
+                                        placeholder="Comment"
                                         onChange={(e) => setComment(e.target.value)}
-                                    />
+                                    /><br /><br /><br />
                                     <input
                                         type="number"
                                         value={rating}
-                                        onChange={(e) => setRating(e.target.value)} />
+                                        placeholder="Rating"
+                                        onChange={(e) => setRating(e.target.value)}
+                                    /><br /><br /><br />
                                     <button type="submit">Add Comment</button>
                                 </form>
                             </div>

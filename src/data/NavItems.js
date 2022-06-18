@@ -28,6 +28,12 @@ const NavItems = [
     title: "Contact Us",
     path: "./contactus",
     cName: "nav-item",
+  },
+  {
+    id:6,
+    title: "Signout",
+    path: "./",
+    cName: "nav-item",
   }
 ];
 

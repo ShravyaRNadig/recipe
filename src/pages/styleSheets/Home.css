@@ -19,7 +19,8 @@ html {
 }
 
 body {
-    background-color: #D2DBDD;
+    /* background-color: #D2DBDD; */
+    background-color: #decd6c;
     display: flex;
     display: -webkit-flex;
     /* -webkit-justify-content: center;

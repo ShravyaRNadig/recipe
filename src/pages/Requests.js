@@ -25,12 +25,17 @@ const Requests = () => {
         }
     }, [food])
 
-
+    const styles = {
+		display: 'flex',
+       	alignItems: 'center',
+		justifyContent: 'center',
+		width: 'auto'
+	};
 
     if (requestOptions.length > 0) {
         return (
             <div>
-                <h1>Requests</h1>
+                <h1 style={styles}>Requests</h1>
                 <div className="request_container">
                     {requestOptions.map((item) => (
                         <RequestItem request={item} />
@@ -41,7 +46,7 @@ const Requests = () => {
         )
     } else {
         return (
-            <div>
+            <div style={styles}>&nbsp;
                 <h3>No Requests to display</h3>
             </div>
         )

@@ -10,6 +10,12 @@ const AdminNavItems = [
     title: "Requests",
     path: "./admin/requests",
     cName: "nav-item",
+  },
+  {
+    id:3,
+    title: "Signout",
+    path: "./",
+    cName: "nav-item",
   }
 ];
 
