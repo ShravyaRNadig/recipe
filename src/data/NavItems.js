@@ -19,18 +19,24 @@ const NavItems = [
   },
   {
     id: 4,
+    title: "Video",
+    path: "./video",
+    cName: "nav-item",
+  },
+  {
+    id: 5,
     title: "Search",
     path: "./search",
     cName: "nav-item",
   },  
   {
-    id: 5,
+    id: 6,
     title: "Contact Us",
     path: "./contactus",
     cName: "nav-item",
   },
   {
-    id:6,
+    id:7,
     title: "Signout",
     path: "./",
     cName: "nav-item",

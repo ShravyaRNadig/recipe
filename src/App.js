@@ -11,6 +11,7 @@ import Search from "./pages/Search";
 import AddRecipe from './pages/AddRecipe';
 import Requests from './pages/Requests';
 import NavItems from "./data/NavItems";
+import Video from "./pages/Video";
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/contactus" element={<ContactUs />}></Route>
           <Route path="/contribute" element={<Contribute />}></Route>
           <Route path="/search" element={<Search />}></Route>
+          <Route path="/video" element={<Video/>}></Route>
           <Route path="/admin/addRecipe" element={<AddRecipe />}></Route>
           <Route path="/admin/requests" element={<Requests />}></Route>
         </Routes>
