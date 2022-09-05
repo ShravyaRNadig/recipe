@@ -29,7 +29,8 @@ const Cuisine = () => {
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		width: 'auto'
+		width: 'auto',
+		fontsize: '100px'
 	};
 
 	const handleAuthRedirect = () => {

@@ -1,0 +1,22 @@
+.contactForm{
+    padding: -2px;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+  }
+  .contactForm input, select, button, textarea{
+    height: 20px;
+    padding-left: 5px;
+    font-size: 18px;
+  }
+  .contactForm textarea{
+    height: 100px;
+  }
+  .contactForm select{
+    height:700px;
+  }
